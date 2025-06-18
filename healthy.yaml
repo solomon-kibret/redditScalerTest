@@ -11,6 +11,8 @@ spec:
     max: 10
     min: 3
   scalers:
-    - cpu: {}
+  - cpu:
+      type: Utilization
+      thresholdPercent: 80
   target:
     deployment: ads-asset-management-cm-consumer
