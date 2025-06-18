@@ -1,0 +1,19 @@
+apiVersion: autoscaling.infrared.reddit.com/v1alpha1
+kind: RedditScaler
+metadata:
+  name: rscaler-nginx
+  namespace: default
+spec:
+  replicas:
+    dynamic:
+      enabled: true
+      maxScaleCooldown: 300
+      minScaleCooldown: 1
+    max: 10
+    min: 3
+  scalers:
+    - cpu:
+        type: p95                # required; "p95" or "avg" accepted, NOT "Utilization"
+        thresholdPercent: 80     # required; 80 or any safe value
+  target:
+    deployment: nginx
