@@ -8,8 +8,8 @@ spec:
       enabled: true
       maxScaleCooldown: 300
       minScaleCooldown: 1
-    max: 10
-    min: 3
+    max: 5
+    min: 2
   scalers:
   - adaptive: {}
   target:
