@@ -1,24 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: authorizer
+  name: post-thrift-mailroom
   namespace: default
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: authorizer
+      app: post-thrift-mailroom
   template:
     metadata:
       labels:
-        app: authorizer
-        infrared.reddit.com/deployment: authorizer  # REQUIRED
+        app: post-thrift-mailroom
+        infrared.reddit.com/deployment: post-thrift-mailroom  # REQUIRED
     spec:
       containers:
         - name: consumer
           image: nginx:stable
           ports:
             - containerPort: 80
-          resources:
-            requests:
-              cpu: "50m"

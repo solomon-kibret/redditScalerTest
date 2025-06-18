@@ -1,7 +1,7 @@
 apiVersion: autoscaling.infrared.reddit.com/v1alpha1
 kind: RedditScaler
 metadata:
-  name: rscaler-unmanaged
+  name: rscaler-missing-cpu
 spec:
   replicas:
     dynamic:
@@ -12,5 +12,8 @@ spec:
     min: 3
   scalers:
   - adaptive: {}
+  - cpu:
+    thresholdPercent: 69
+    type: avg
   target:
-    deployment: authorizer
+    deployment: post-thrift-mailroom

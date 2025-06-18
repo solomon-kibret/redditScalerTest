@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: ConfigMap  # Can also use 'Service', 'Secret', etc.—just not HPA or ScaledObject
-metadata:
-  name: authorizer
-  namespace: default
-data:
-  test: "force adoption fail"
