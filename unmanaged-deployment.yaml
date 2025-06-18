@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ads-asset-management
+  name: authorizer
   namespace: default
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: ads-asset-management
+      app: authorizer
   template:
     metadata:
       labels:
-        app: ads-asset-management
-        # missing infrared.reddit.com/deployment: in order to fail
+        app: authorizer
+        infrared.reddit.com/deployment: authorizer  # REQUIRED
     spec:
       containers:
         - name: consumer
