@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ads-asset-management-cm-consumer
+  namespace: default
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ads-asset-management-cm-consumer
+  template:
+    metadata:
+      labels:
+        app: ads-asset-management-cm-consumer
+        infrared.reddit.com/deployment: ads-asset-management-cm-consumer  # REQUIRED
+    spec:
+      containers:
+        - name: consumer
+          image: nginx:stable
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: "50m"     # REQUIRED
