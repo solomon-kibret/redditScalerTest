@@ -12,8 +12,6 @@ spec:
     max: 10
     min: 3
   scalers:
-    - cpu:
-        type: p95                # required; "p95" or "avg" accepted, NOT "Utilization"
-        thresholdPercent: 80     # required; 80 or any safe value
+  - adaptive: {}
   target:
     deployment: nginx
