@@ -1,0 +1,16 @@
+apiVersion: autoscaling.infrared.reddit.com/v1alpha1
+kind: RedditScaler
+metadata:
+  name: rscaler-invalidLabel
+spec:
+  replicas:
+    dynamic:
+      enabled: true
+      maxScaleCooldown: 300
+      minScaleCooldown: 1
+    max: 10
+    min: 3
+  scalers:
+  - adaptive: {}
+  target:
+    deployment: ads-asset-management

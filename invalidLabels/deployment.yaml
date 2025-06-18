@@ -1,18 +1,17 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ads-asset-management-cm-consumer
+  name: ads-asset-management
   namespace: default
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: ads-asset-management-cm-consumer
+      app: ads-asset-management
   template:
     metadata:
       labels:
-        app: ads-asset-management-cm-consumer
-        infrared.reddit.com/deployment: ads-asset-management-cm-consumer  # REQUIRED
+        app: ads-asset-management
     spec:
       containers:
         - name: consumer
